@@ -36,8 +36,7 @@ impl Timer {
                 let process_time = now.elapsed().as_secs_f64();
 
                 if dur > process_time {
-                    let duration = std::time::Duration::from_secs_f64(dur - process_time);
-                    spin_sleep::sleep(duration);
+                    spin_sleep::sleep(std::time::Duration::from_secs_f64(dur - process_time));
                 }
             }
         }));
