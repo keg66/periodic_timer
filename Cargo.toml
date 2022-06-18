@@ -3,6 +3,14 @@ name = "simple_timer"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "sample"
+path = "bin/sample.rs"
+
+[[bin]]
+name = "capture_sample"
+path = "bin/capture_sample.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
