@@ -5,16 +5,16 @@ use std::{
 
 pub struct Timer {
     duration: f64,
-    callback: Arc<fn() -> ()>,
+    callback: Arc<dyn Fn() -> () + Send + Sync + 'static>,
     handler: Option<JoinHandle<()>>,
     is_running: Arc<AtomicBool>,
 }
 
 impl Timer {
-    pub fn new(duration: f64, callback: fn() -> ()) -> Timer {
+    pub fn new<F: Fn() -> () + Send + Sync + 'static>(duration: f64, callback: F) -> Timer {
         Timer {
             duration,
-            callback: Arc::new(callback),
+            callback: Arc::<F>::new(callback),
             handler: None,
             is_running: Arc::new(AtomicBool::new(false)),
         }
