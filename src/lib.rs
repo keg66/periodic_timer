@@ -1,8 +1,29 @@
+//! # Simple Timer
+//!
+//! `simple_timer` is a simple implementation of cyclic timer.
+//!
+//! # Usage
+//!
+//! ```
+//! use simple_timer::Timer;
+//!
+//! // Prepare callback function to be periodically executed
+//! let callback = move || println!("hello timer!");
+//!
+//! // Create new timer
+//! let mut timer = Timer::new(1.0, callback);
+//!
+//! // Start timer
+//! timer.start();
+//! ```
+//!
+
 use std::{
     sync::{atomic::AtomicBool, atomic::Ordering, Arc},
     thread::JoinHandle,
 };
 
+/// Simple implementation of cyclic timer.
 pub struct Timer {
     duration: f64,
     callback: Arc<dyn Fn() -> () + Send + Sync + 'static>,
@@ -11,6 +32,10 @@ pub struct Timer {
 }
 
 impl Timer {
+    /// Create new Timer.
+    ///
+    /// * `duration` target duration \[sec\]
+    /// * `callback` callback function to be periodically executed
     pub fn new<F: Fn() -> () + Send + Sync + 'static>(duration: f64, callback: F) -> Timer {
         Timer {
             duration,
@@ -20,6 +45,7 @@ impl Timer {
         }
     }
 
+    /// Start Timer.
     pub fn start(&mut self) {
         let dur = self.duration;
         let local_callback = self.callback.clone();
@@ -42,6 +68,7 @@ impl Timer {
         }));
     }
 
+    /// Stop Timer.
     pub fn stop(&mut self) {
         self.is_running.store(false, Ordering::SeqCst);
 
