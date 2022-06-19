@@ -11,6 +11,10 @@ path = "bin/sample.rs"
 name = "capture_sample"
 path = "bin/capture_sample.rs"
 
+[[bin]]
+name = "struct_sample"
+path = "bin/struct_sample.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
