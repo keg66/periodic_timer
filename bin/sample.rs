@@ -5,10 +5,10 @@ fn timer_callback() {
 }
 
 fn main() {
-    let mut timer = Timer::new(0.5, timer_callback);
+    let timer = Timer::new(0.5, timer_callback);
     timer.start();
 
-    let mut timer2 = Timer::new(0.1, || {
+    let timer2 = Timer::new(0.1, || {
         println!("[timer_callback closure] {:?}", std::time::Instant::now());
     });
 

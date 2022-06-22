@@ -17,7 +17,7 @@ impl MyStruct {
             println!("current state: {}", *state);
         };
 
-        let mut my_struct = MyStruct {
+        let my_struct = MyStruct {
             state,
             timer: Timer::new(0.5, callback),
         };
