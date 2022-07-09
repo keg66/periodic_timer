@@ -8,7 +8,7 @@
 //! use simple_timer::Timer;
 //!
 //! // Prepare callback function to be periodically executed
-//! let callback = move || println!("hello timer!");
+//! let callback = || println!("hello timer!");
 //!
 //! // Create new timer
 //! let timer = Timer::new(1.0, callback);
