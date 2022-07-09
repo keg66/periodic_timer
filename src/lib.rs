@@ -79,10 +79,35 @@ impl Timer {
             handler.join().unwrap();
         }
     }
+
+    /// Get state whether Timer has started or not.
+    pub fn has_started(&self) -> bool {
+        self.is_running.load(Ordering::SeqCst)
+    }
 }
 
 impl Drop for Timer {
     fn drop(&mut self) {
         self.stop();
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_has_started() {
+        let timer = Timer::new(1.0, || {});
+
+        assert_eq!(timer.has_started(), false);
+
+        timer.start();
+
+        assert_eq!(timer.has_started(), true);
+
+        timer.stop();
+
+        assert_eq!(timer.has_started(), false);
     }
 }
