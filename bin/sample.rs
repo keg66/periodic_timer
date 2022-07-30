@@ -1,4 +1,4 @@
-use simple_timer::Timer;
+use periodic_timer::Timer;
 
 fn timer_callback() {
     println!("[timer_callback] {:?}", std::time::Instant::now());

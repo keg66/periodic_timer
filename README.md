@@ -1,12 +1,12 @@
-Simple Timer
+Periodic Timer
 ==
 
-`simple_timer` is a simple Rust implementation of cyclic timer.
+`periodic_timer` is a simple Rust implementation of periodic timer.
 
 # Usage
 
 ```rust
-use simple_timer::Timer;
+use periodic_timer::Timer;
 
 // Prepare callback function to be periodically executed
 let callback = || println!("hello timer!");

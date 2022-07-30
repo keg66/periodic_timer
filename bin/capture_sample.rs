@@ -1,4 +1,4 @@
-use simple_timer::Timer;
+use periodic_timer::Timer;
 use std::sync::atomic::{AtomicU64, Ordering};
 
 fn main() {

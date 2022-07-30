@@ -1,7 +1,7 @@
 use std::sync::Arc;
 use std::sync::Mutex;
 
-use simple_timer::Timer;
+use periodic_timer::Timer;
 
 struct MyStruct {
     state: Arc<Mutex<f64>>,

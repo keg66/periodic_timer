@@ -1,11 +1,11 @@
 //! # Simple Timer
 //!
-//! `simple_timer` is a simple implementation of cyclic timer.
+//! `periodic_timer` is a simple implementation of periodic timer.
 //!
 //! # Usage
 //!
 //! ```
-//! use simple_timer::Timer;
+//! use periodic_timer::Timer;
 //!
 //! // Prepare callback function to be periodically executed
 //! let callback = || println!("hello timer!");
@@ -24,7 +24,7 @@ use std::{
     thread::JoinHandle,
 };
 
-/// Simple implementation of cyclic timer.
+/// Simple implementation of periodic timer.
 pub struct Timer {
     duration: f64,
     callback: Arc<dyn Fn() -> () + Send + Sync + 'static>,
