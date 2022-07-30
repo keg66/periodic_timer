@@ -1,7 +1,11 @@
 [package]
 name = "simple_timer"
 version = "0.1.0"
+authors = ["keg66 <keg@keg66.com>"]
+description = "simple Rust implementation of cyclic timer."
+license = "MIT OR Apache-2.0"
 edition = "2021"
+repository = "https://github.com/keg66/simple_timer"
 
 [[bin]]
 name = "sample"
